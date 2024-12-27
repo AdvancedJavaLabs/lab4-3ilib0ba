@@ -26,18 +26,25 @@ public class MainHadoop {
         parseConsoleArgs(args);
         createAndSetUpConfigurationHadoop();
 
-        long startTime = System.currentTimeMillis();
+        long startTime1 = System.currentTimeMillis();
         Job job1 = createJobMapAndRevenue();
         if (job1.waitForCompletion(true)) {
-            System.out.println("Complete TOPIC_FOR_REVENUE_AND_COUNT success, time required: " + (System.currentTimeMillis() - startTime));
+            System.out.println("Complete TOPIC_FOR_REVENUE_AND_COUNT success, time required: " + (System.currentTimeMillis() - startTime1));
         }
+        long endTime1 = System.currentTimeMillis();
 
-        startTime = System.currentTimeMillis();
+        long startTime2 = System.currentTimeMillis();
         Job job2 = createJobRevenueSort();
         if (job2.waitForCompletion(true)) {
-            System.out.println("Complete TOPIC_FOR_REVENUE_SORT success, time required: " + (System.currentTimeMillis() - startTime));
+            System.out.println("Complete TOPIC_FOR_REVENUE_SORT success, time required: " + (System.currentTimeMillis() - startTime2));
         }
+        long endTime2 = System.currentTimeMillis();
 
+        System.out.println("\n\n---------- RESULTS ----------");
+        System.out.println("Complete MAP_REDUCE: " + (endTime1 - startTime1));
+        System.out.println("Complete SORTIROVKA: " + (endTime2 - startTime2));
+        System.out.println("Complete   ALL_TIME: " + (endTime2 - startTime2 + endTime1 - startTime1));
+        System.out.println("---------- ------- ----------\n\n");
     }
 
     private static void parseConsoleArgs(String[] args) {

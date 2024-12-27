@@ -1,0 +1,61 @@
+===========  ANSWERS  ===========
+clothing                4.560302171986004E9     911487
+video games             4.560108307495023E9     913326
+baby products           4.541435362250933E9     907186
+beauty products         4.533874327849004E9     906417
+gardening tools         4.531880837735979E9     905841
+automotive              4.529861310739067E9     904962
+music instruments       4.512294466137047E9     902389
+furniture               4.503986763162001E9     900244
+electronics             4.497526631038986E9     903266
+pet supplies            4.48874173038202E9      896724
+stationery              4.481794912395009E9     898265
+home appliances         4.473888361734073E9     895815
+sports equipment        4.469387812336104E9     894287
+groceries               4.466915230970001E9     895470
+footwear                4.465574983361043E9     894424
+jewelry                 4.463823670789997E9     893980
+office equipment        4.463564947380993E9     892370
+toys                    4.462453654118997E9     892741
+books                   4.457620825952977E9     890948
+health & wellness       4.454082892491087E9     890475
+
+
+=========== ANALYTICS ===========
+REDUCERS: 1
+SIZE__MB: 1
+---------- RESULTS ----------
+Complete MAP_REDUCE: 145070
+Complete SORTIROVKA: 39686
+Complete   ALL_TIME: 184756
+---------- ------- ----------
+
+REDUCERS: 1
+SIZE__MB: 2
+---------- RESULTS ----------
+Complete MAP_REDUCE: 90517
+Complete SORTIROVKA: 39666
+Complete   ALL_TIME: 130183
+---------- ------- ----------
+
+
+REDUCERS: 2
+SIZE__MB: 2
+---------- RESULTS ----------
+Complete MAP_REDUCE: 92917
+Complete SORTIROVKA: 38671
+Complete   ALL_TIME: 131588 (same???)
+---------- ------- ----------
+
+
+REDUCERS: 2
+SIZE__MB: 32
+---------- RESULTS ----------
+Complete MAP_REDUCE: 23629
+Complete SORTIROVKA: 20753
+Complete   ALL_TIME: 44382
+---------- ------- ----------
+
+Количество REDUCERS не влияет при маленьких блоках памяти, что странно
+Размер блоков памяти, выделяемых под каждый Mapper влияет до некоторого момента
+(от 64МБ у меня нет изменений по времени, до 32МБ прирост сильный, если поставить 1КБ, то вообще вечность грузится)
